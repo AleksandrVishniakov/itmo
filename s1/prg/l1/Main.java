@@ -18,7 +18,7 @@ public class Main {
         } else if (inNums(e[i])) {
             return Math.pow((0.5 + Math.cbrt(x[j])) / (x[j] * x[j]), 6);
         } else {
-            return Math.pow(3 / 
+            return Math.pow(3.0 / 
                 (2 + (1 - Math.pow(Math.cbrt(x[j]), Math.tan(x[j]) * (x[j] / 2 + 4))) / 
                 (Math.cbrt(Math.log(Math.abs(x[j]))))), 2
             );
