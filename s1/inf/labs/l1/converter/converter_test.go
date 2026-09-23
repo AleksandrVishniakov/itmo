@@ -72,23 +72,24 @@ func TestLab(t *testing.T) {
 			to:    "dec",
 		},
 		{
-			value: "745",
+			value: "100",
 			from:  "dec",
 			to:    "fact",
 		},
 		{
-			value: "10100100",
-			from:  "fib",
-			to:    "dec",
+
+			value: "1000",
+			from:  "dec",
+			to:    "berg",
 		},
 		{
-			value: "1000001.000001",
+			value: "1000101",
 			from:  "berg",
 			to:    "dec",
 		},
 		{
-			value: "-131",
-			from:  "9C",
+			value: "1000101",
+			from:  "fact",
 			to:    "dec",
 		},
 	}
