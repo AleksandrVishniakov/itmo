@@ -25,6 +25,15 @@ public class Main {
         }
     }
 
+    public static void printMatrix(double[][] m) {
+        for (int i = 0; i < m.length; ++i) {
+            for (int j = 0; j < m[i].length; ++j) {
+                System.out.printf("%.4f\t", m[i][j]);
+            }
+            System.out.println();
+        }
+    }
+
     public static void main(String[] args) {
         // 1
         short[] e = new short[15];
@@ -48,11 +57,6 @@ public class Main {
         }
 
         // 4
-        for (int i = 0; i < e1.length; i++) {
-            for (int j = 0; j < e1[i].length; j++) {
-                System.out.printf("%.4f\t", e1[i][j]);
-            }
-            System.out.println();
-        }
+        printMatrix(e1);
     }
 }
