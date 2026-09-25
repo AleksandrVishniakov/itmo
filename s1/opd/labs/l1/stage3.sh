@@ -3,10 +3,14 @@ cd lab0
 chmod u+r clamperl
 chmod u+w clamperl/altaria
 chmod u+r clamperl/mismagius
+chmod u+r clamperl/deino
+chmod u+r clamperl/exeggcute
 cp -r clamperl clamperl/altaria
 chmod u-r clamperl
 chmod u-w clamperl/altaria
 chmod u-r clamperl/mismagius
+chmod u-r clamperl/deino
+chmod u-r clamperl/exeggcute
 
 ln -s cubone Copy_44
 
