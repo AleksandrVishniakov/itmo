@@ -9,6 +9,7 @@ rm -f Copy_*
 chmod u+w cubone
 rm -f cubone/masquerainsni*
 
+chmod u+r gabite/fraxure
 rm -rf gabite
 
 rm -rf cubone/staryu
