@@ -24,7 +24,7 @@ cat *e */*e */*/*e 2>/dev/null | sort
 echo -e "\n--- Task 5 ---"
 
 # find . -name "c*" -ls 2>&1 | sort -k10 -r | head -n 2
-ls -ldt $(echo c* */c* */*/c*) 2>&1
+ls -ldt $(echo c* */c* */*/c*) 2>&1 | grep -v "^ls:\ \*"
 
 echo -e "\n--- Task 6 ---"
 
