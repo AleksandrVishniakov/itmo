@@ -1,15 +1,15 @@
 cd lab0
 
-chmod u=wx,g=wx,o-rwx clamperl 
-chmod u=wx,g-rwx,o=rx clamperl/mismagius
+chmod u=wx,g=wx,o-rx clamperl 
+chmod u=wx,g-rx,o=rx clamperl/mismagius
 chmod 006 clamperl/exeggcute
 chmod 555 clamperl/altaria
 chmod ugo=r clamperl/politoed
 chmod 357 clamperl/deino
 chmod 400 clamperl/porygon
 
-chmod u=rx,g=rwx,o-rwx cubone
-chmod u=rx,g-rwx,o-rwx cubone/octillery
+chmod u=rx,g=rwx,o-rx cubone
+chmod u=rx,g-rx,o-rx cubone/octillery
 chmod 044 cubone/grumpig
 chmod 550 cubone/ducklett
 chmod 404 cubone/silcoon
