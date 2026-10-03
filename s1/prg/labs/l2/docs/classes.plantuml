@@ -1,0 +1,56 @@
+@startuml
+
+class Pokemon
+
+class Gorebyss
+class Nincada
+class Scizor
+class Charmander
+class Charmeleon
+class Charizard
+
+abstract Move
+abstract DamageMove
+class StatusMove
+class PhysicalMove
+class SpecialMove
+
+class Acupressure
+class RazorLeaf
+class TailWhip
+class Barrier
+class MuddyWater
+class FakeOut
+class DoubleTeam
+class BatonPass
+class SteelWing
+class PoisonPowder
+class Flatter
+class Growth
+
+Gorebyss <|-- Pokemon
+Nincada <|-- Pokemon
+Scizor <|-- Pokemon
+Charmander <|-- Pokemon
+Charmeleon <|-- Charmander
+Charizard <|-- Charmeleon 
+
+StatusMove <|-- Move
+DamageMove <|-- Move
+PhysicalMove <|-- DamageMove
+SpecialMove <|-- DamageMove
+
+Acupressure <|-- StatusMove
+Barrier <|-- StatusMove
+BatonPass <|-- StatusMove
+DoubleTeam <|-- StatusMove
+FakeOut <|-- PhysicalMove
+Flatter <|-- StatusMove
+Growth <|-- StatusMove
+MuddyWater <|-- SpecialMove
+PoisonPowder <|-- StatusMove
+RazorLeaf <|-- PhysicalMove
+SteelWing <|-- PhysicalMove
+TailWhip <|-- StatusMove
+
+@enduml
