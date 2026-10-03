@@ -1,6 +1,7 @@
 import java.util.Random;
 
 public class Main {
+    // new comment
     public static boolean inNums(int e) {
         int[] nums = new int[] { 6, 8, 9, 10, 11, 13, 15 };
         for (int k = 0; k < nums.length; k++) {
