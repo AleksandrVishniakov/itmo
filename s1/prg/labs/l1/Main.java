@@ -35,20 +35,17 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        // 1
         short[] e = new short[15];
         for (int i = 0; i < e.length; i++) {
             e[i] = (short) (i + 6);
         }
 
-        // 2
         double[] x = new double[12];
         Random random = new Random();
         for (int i = 0; i < x.length; i++) {
             x[i] = random.nextDouble(-10.0, 6.0);
         }
 
-        // 3
         double[][] e1 = new double[15][12];
         for (int i = 0; i < e1.length; i++) {
             for (int j = 0; j < e1[i].length; j++) {
@@ -56,7 +53,6 @@ public class Main {
             }
         }
 
-        // 4
         printMatrix(e1);
     }
 }
