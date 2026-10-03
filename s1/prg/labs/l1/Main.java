@@ -35,7 +35,6 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        Error!
         // 1
         short[] e = new short[15];
         for (int i = 0; i < e.length; i++) {
