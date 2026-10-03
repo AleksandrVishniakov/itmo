@@ -1,0 +1,32 @@
+name: Lab1 Build JAR
+
+on:
+  push:
+    paths:
+      - 's1/prg/labs/l1/**'  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '17'
+
+    - name: Compile
+      working-directory: ./s1/prg/labs/l1
+      run: javac Main.java
+
+    - name: Build JAR
+      working-directory: ./s1/prg/labs/l1
+      run: jar cfe Main.jar Main Main.class
+
+    - name: Upload JAR
+      uses: actions/upload-artifact@v4
+      with:
+        name: java-lab-1-jar
+        path: s1/prg/labs/l1/Main.jar
