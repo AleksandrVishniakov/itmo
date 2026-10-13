@@ -16,6 +16,7 @@ public class Main {
     Pokemon gorebyss = new Gorebyss("Gorebyss", 1);
     Pokemon nincada = new Nincada("Nincada", 1);
     Pokemon scizor = new Scizor("Scizor", 1);
+    // Pokemon scizor = new Scizor("Scizor", 16);
 
     Pokemon charmander = new Charmander("Charmander", 1);
     Pokemon charmeleon = new Charmeleon("Charmeleon", 1);

@@ -9,5 +9,6 @@ final public class Charizard extends Charmeleon {
     this.setType(Type.FIRE, Type.FLYING);
     this.setStats(78, 84, 78, 109, 85, 100);
     this.addMove(new Growth());
+    return ;
   }
 }
