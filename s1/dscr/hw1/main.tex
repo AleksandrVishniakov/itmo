@@ -1,0 +1,92 @@
+% !TeX program = xelatex
+\documentclass[12pt,a4paper]{extarticle}
+
+\usepackage{fontspec}
+\usepackage{amssymb}
+\usepackage{polyglossia}
+\setdefaultlanguage{russian}
+\setmainfont{DejaVu Serif}
+
+\usepackage{geometry}
+\geometry{
+    left=3cm,
+    right=1.5cm,
+    top=2cm,
+    bottom=2cm
+}
+
+\usepackage{setspace}
+\onehalfspacing
+
+\usepackage{indentfirst}
+\usepackage{tikz}
+\usepackage{makecell}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{multirow}
+\usepackage{array}
+
+\usepackage{caption}
+\captionsetup{
+    font={small,it}
+}
+
+\hypersetup{
+    colorlinks=false,
+    pdftitle={Домашняя работа 1}
+}
+
+\renewcommand{\arraystretch}{1.2}
+
+\begin{document}
+
+% Титульный лист
+\begin{titlepage}
+    \begin{center}
+        Федеральное государственное автономное образовательное учреждение высшего образования «Национальный исследовательский университет ИТМО»\\
+        Факультет программной инженерии и компьютерной техники
+
+        \vfill
+
+        \textbf{Домашняя работа №1}
+
+        по предмету «Дискретная математика»
+
+        на тему:
+
+        \textbf{«Название темы»}
+
+        Вариант №14.
+        \vfill
+    \end{center}
+
+    \begin{flushright}
+        Выполнил:\\
+        Вишняков Александр Сергеевич\\
+        группа Р3110
+        
+        \vspace{0.5cm}
+
+        Проверил:\\
+        Поляков В.И.
+    \end{flushright}
+
+    \vfill
+
+    \begin{center}
+        Санкт-Петербург, 2026
+    \end{center}
+\end{titlepage}
+
+\tableofcontents
+\clearpage
+
+\input{chapters/task}
+\input{chapters/task1}
+\input{chapters/task2}
+\input{chapters/task3}
+\input{chapters/conclusion}
+
+\end{document}

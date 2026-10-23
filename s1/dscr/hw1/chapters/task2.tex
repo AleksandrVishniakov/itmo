@@ -1,0 +1,226 @@
+\section{Сложение целых чисел}
+\subsection{Сложение чисел A и В c различными знаками}
+
+В таблице~\ref{tab:a-b-dop} представлены прямые и дополнительные коды
+для чисел $A$ и $B$.
+
+\begin{table}[H]
+    \centering
+    \caption{Прямые и дополнительные коды для A и В}
+	\label{tab:a-b-dop}
+    \begin{tabular}{|c|c|c|}
+		\hline
+		 & Прямой код & Дополнительный код \\
+		\hline
+		$A=109$ & $0110\ 1101$ & \makecell{$2^8-109$\\$1001\ 0011$}  \\
+		\hline
+		$B=17$ & $0001\ 0001$ & \makecell{$2^8-17$\\$1110\ 1111$} \\
+		\hline
+    \end{tabular}
+\end{table}
+
+\subsubsection{A+B}
+
+\begin{table}[H]
+    \centering
+    \caption{Сложение А и В}
+    \begin{tabular}{c|cc|cccccccp{1cm}ccp{0.5cm}cc}
+		\small перенос & & & & & & & & $1$ & & & \multicolumn{2}{c}{знаковая} & \  & \multicolumn{2}{c}{беззнаковая}  \\
+		\cline{1-10} \cline{12-13} \cline{15-16}
+		$A_{\text{пр}}$ & & 0 & 1 & 1 & 0 & 1 & 1 & 0 & 1 & & \multirow{2}{*}{+} & 109 & \  & \multirow{2}{*}{+} & 109   \\
+		$B_{\text{пр}}$ & & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 1 & & & 17 & \  &  & 17 \\
+		\cline{1-10} \cline{12-13} \cline{15-16}
+		$C_{\text{пр}}$ & & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 0 & & & 126 & \  &  & 126 \\
+    \end{tabular}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{cccccc}
+        CF=0; & ZF=0; & PF=1; & AF=0; & SF=0; & OF=0;
+    \end{tabular}
+\end{table}
+
+\subsubsection{-A+B}
+
+\begin{table}[H]
+    \centering
+    \caption{Сложение -А и В}
+    \begin{tabular}{c|cc|cccccccp{1cm}ccp{0.5cm}cc}
+		\small перенос & & & & $1$ & & & $1$ & $1$ & & & \multicolumn{2}{c}{знаковая} & \  & \multicolumn{2}{c}{беззнаковая}  \\
+		\cline{1-10} \cline{12-13} \cline{15-16}
+		$A_{\text{доп}}$ & & 1 & 0 & 0 & 1 & 0 & 0 & 1 & 1 & & \multirow{2}{*}{+} & -109 & \  & \multirow{2}{*}{+} & 147  \\
+		$B_{\text{пр}}$ & & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 1 & & & 17 & \  &  & 17 \\
+		\cline{1-10} \cline{12-13} \cline{15-16}
+		$C_{\text{доп}}$ & & 1 & 0 & 1 & 0 & 0 & 1 & 0 & 0 & & & & \  &  & 164 \\
+		\cline{1-10} \cline{12-13} \cline{15-16}
+		$C_{\text{пр}}$ & & 1 & 1 & 0 & 1 & 1 & 1 & 0 & 0 & & & -92 & \  &  & 
+    \end{tabular}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{cccccc}
+        CF=0; & ZF=0; & PF=0; & AF=0; & SF=1; & OF=0;
+    \end{tabular}
+\end{table}
+
+
+\subsubsection{A+(-B)}
+
+\begin{table}[H]
+    \centering
+    \caption{Сложение А и -В}
+    \begin{tabular}{c|cc|cccccccp{1cm}ccp{0.5cm}cc}
+		\small перенос & $1$ & $1$ & $1$ & & $1$ & $1$ & $1$ & $1$ & & & \multicolumn{2}{c}{знаковая} & \  & \multicolumn{2}{c}{беззнаковая}  \\
+		\cline{1-10} \cline{12-13} \cline{15-16}
+		$A_{\text{пр}}$ & & 0 & 1 & 1 & 0 & 1 & 1 & 0 & 1 & & \multirow{2}{*}{+} & 109 & \  & \multirow{2}{*}{+} & 109   \\
+		$B_{\text{доп}}$ & & 1 & 1 & 1 & 0 & 1 & 1 & 1 & 1 & & & -17 & \  &  & 239 \\
+		\cline{1-10} \cline{12-13} \cline{15-16}
+		$C_{\text{пр}}$ & & 0 & 1 & 0 & 1 & 1 & 1 & 0 & 0 & & & 92 & \  &  & 92? \\
+    \end{tabular}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{cccccc}
+        CF=1; & ZF=0; & PF=1; & AF=1; & SF=0; & OF=0;
+    \end{tabular}
+\end{table}
+
+Для беззнаковой интерпретации результат неверен из-за переноса старшего разряда,
+величина которого 256. $109+239=348$, $348-256=92$. 
+
+
+\subsubsection{-A+(-B)}
+
+\begin{table}[H]
+    \centering
+    \caption{Сложение -А и -В}
+    \begin{tabular}{c|cc|cccccccp{1cm}ccp{0.5cm}cc}
+		\small перенос & $1$ & $1$ & $1$ & $1$ & $1$ & $1$ & $1$ & $1$ & & & \multicolumn{2}{c}{знаковая} & \  & \multicolumn{2}{c}{беззнаковая}  \\
+		\cline{1-10} \cline{12-13} \cline{15-16}
+		$A_{\text{доп}}$ & & 1 & 0 & 0 & 1 & 0 & 0 & 1 & 1 & & \multirow{2}{*}{+} & -109 & \  & \multirow{2}{*}{+} & 147\\
+		$B_{\text{доп}}$ & & 1 & 1 & 1 & 0 & 1 & 1 & 1 & 1 & & & -17 & \  &  & 239 \\
+		\cline{1-10} \cline{12-13} \cline{15-16}
+		$C_{\text{доп}}$ & & 1 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & & & & \  &  & 130? \\
+		\cline{1-10} \cline{12-13} \cline{15-16}
+		$C_{\text{пр}}$ & & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 0 & & & -126 & \  &  & \\
+    \end{tabular}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{cccccc}
+        CF=1; & ZF=0; & PF=0; & AF=1; & SF=1; & OF=0;
+    \end{tabular}
+\end{table}
+
+Для беззнаковой интерпретации результат неверен из-за переноса старшего разряда,
+величина которого 256. $147+239=386$, $386-256=130$. 
+
+\subsection{Подбор числа В}
+Для того, чтобы получить переполнение, необходимо, чтобы $A+B>128$. Возьмём
+$B=20_{10}=0001\ 0100_{2}$. Тогда $-B=2^8-20=236_{10}=1110\ 1100_{2}$.
+
+\begin{table}[H]
+    \centering
+    \caption{Сложение А и В}
+    \begin{tabular}{c|cc|cccccccp{1cm}ccp{0.5cm}cc}
+		\small перенос & & $1$ & $1$ & $1$ & $1$ & $1$ & & & & & \multicolumn{2}{c}{знаковая} & \  & \multicolumn{2}{c}{беззнаковая}  \\
+		\cline{1-10} \cline{12-13} \cline{15-16}
+		$A_{\text{пр}}$ & & 0 & 1 & 1 & 0 & 1 & 1 & 0 & 1 & & \multirow{2}{*}{+} & 109 & \  & \multirow{2}{*}{+} & 109   \\
+		$B_{\text{пр}}$ & & 0 & 0 & 0 & 1 & 0 & 1 & 0 & 0 & & & 20 & \  &  & 20 \\
+		\cline{1-10} \cline{12-13} \cline{15-16}
+		$C_{\text{доп}}$ & & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & & & & \  &  & 129 \\
+		\cline{1-10} \cline{12-13} \cline{15-16}
+		$C_{\text{пр}}$ & & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & & & -127? & \  &  & \\
+    \end{tabular}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{cccccc}
+        CF=0; & ZF=0; & PF=1; & AF=1; & SF=1; & OF=1;
+    \end{tabular}
+\end{table}
+
+Для знакового сложения результат неверный из-за переполнения формата.
+
+\begin{table}[H]
+    \centering
+    \caption{Сложение -А и -В}
+    \begin{tabular}{c|cc|cccccccp{1cm}ccp{0.5cm}cc}
+		\small перенос & $1$ &  &  &  &  &  & & & & & \multicolumn{2}{c}{знаковая} & \  & \multicolumn{2}{c}{беззнаковая}  \\
+		\cline{1-10} \cline{12-13} \cline{15-16}
+		$A_{\text{доп}}$ & & 1 & 0 & 0 & 1 & 0 & 0 & 1 & 1 & & \multirow{2}{*}{+} & -109 & \  & \multirow{2}{*}{+} & 147\\
+		$B_{\text{доп}}$ & & 1 & 1 & 1 & 0 & 1 & 1 & 0 & 0 & & & -20 & \  &  & 236 \\
+		\cline{1-10} \cline{12-13} \cline{15-16}
+		$C_{\text{пр}}$ & & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & & & 127? & \  &  & 127?\\
+    \end{tabular}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{cccccc}
+        CF=1; & ZF=0; & PF=0; & AF=0; & SF=0; & OF=1;
+    \end{tabular}
+\end{table}
+
+Для знакового сложения результат неверный из-за переполнения формата.
+Для беззнакового сложения результат неверный из-за переноса старшего разряда. 
+
+\subsection{Подбор числа А}
+Для того чтобы при сложении возникало переполнение, а при сложении отрицательных
+чисел результат был корректен, необходимо $A+B=128$. Значит, возьмём
+$A=111_{10}=0110\ 1111_{2}$, тогда $-A=2^8-109=147_{10}=1001\ 0001_{2}$.
+
+
+
+\begin{table}[H]
+    \centering
+    \caption{Сложение А и В}
+    \begin{tabular}{c|cc|cccccccp{1cm}ccp{0.5cm}cc}
+		\small перенос & & $1$ & $1$ & $1$ & $1$ & $1$ & $1$ & $1$ & & & \multicolumn{2}{c}{знаковая} & \  & \multicolumn{2}{c}{беззнаковая}  \\
+		\cline{1-10} \cline{12-13} \cline{15-16}
+		$A_{\text{пр}}$ & & 0 & 1 & 1 & 0 & 1 & 1 & 1 & 1 & & \multirow{2}{*}{+} & 111 & \  & \multirow{2}{*}{+} & 111   \\
+		$B_{\text{пр}}$ & & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 1 & & & 17 & \  &  & 17 \\
+		\cline{1-10} \cline{12-13} \cline{15-16}
+		$C_{\text{доп}}$ & & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & & & & \  &  & 128 \\
+		\cline{1-10} \cline{12-13} \cline{15-16}
+		$C_{\text{пр}}$ & & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & & & -128? & \  &  & \\
+    \end{tabular}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{cccccc}
+        CF=0; & ZF=0; & PF=0; & AF=1; & SF=1; & OF=1;
+    \end{tabular}
+\end{table}
+
+Для знакового сложения результат неверен из-за переполнения формата.
+
+\begin{table}[H]
+    \centering
+    \caption{Сложение -А и -В}
+    \begin{tabular}{c|cc|cccccccp{1cm}ccp{0.5cm}cc}
+		\small перенос & $1$ & $1$ & $1$ & $1$ & $1$ & $1$ & $1$ & $1$ & & & \multicolumn{2}{c}{знаковая} & \  & \multicolumn{2}{c}{беззнаковая}  \\
+		\cline{1-10} \cline{12-13} \cline{15-16}
+		$A_{\text{доп}}$ & & 1 & 0 & 0 & 1 & 0 & 0 & 0 & 1 & & \multirow{2}{*}{+} & -111 & \  & \multirow{2}{*}{+} & 145   \\
+		$B_{\text{доп}}$ & & 1 & 1 & 1 & 0 & 1 & 1 & 1 & 1 & & & -17 & \  &  & 239\\
+		\cline{1-10} \cline{12-13} \cline{15-16}
+		$C_{\text{доп}}$ & & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & & & & \  &  & 128? \\
+		\cline{1-10} \cline{12-13} \cline{15-16}
+		$C_{\text{пр}}$ & & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & & & -128 & \  &  & \\
+    \end{tabular}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{cccccc}
+        CF=1; & ZF=0; & PF=0; & AF=1; & SF=1; & OF=0;
+    \end{tabular}
+\end{table}
+
+Для беззнакового сложения результат неверен из-за переноса старшего разряда.
