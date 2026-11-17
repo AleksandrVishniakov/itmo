@@ -1,0 +1,64 @@
+settings-1:
+  enabled: true
+  retries: 3e-8
+  ratio: -0.75
+  name: "example"
+  description: "Простой набор атрибутов \"ЦИТАТА\""
+service:
+  frontend:
+    port: "80:80"
+    protocol: null
+    healthcheck:
+      path: "/health"
+      interval: 30
+    tag:
+      - 
+        key: "env"
+        value: ${(a-b)>=(1+2-3*4/5)*5/6.1||port.len!=10}
+      - 
+        key: "team"
+        value: "web"
+resource:
+  compute:
+    web:
+      rules:
+        - 
+          port: 80
+          proto: "tcp"
+        - 
+          port: 443
+          proto: "tcp"
+      disk:
+        - 
+          data:
+            size: 100
+        - 
+          logs:
+            size: 50
+      network:
+        ingress:
+          - 
+            from: 22
+            to: 22
+          - 
+            to: 80
+            from: 80
+      image_id: ${var.image_id}
+      region: "${var.region}-1"
+      user_data: "#!/bin/bash\necho \"hello\""
+      ports:
+        - 80
+        - 443
+        - 8080
+      labels:
+        version: "1.2.3"
+        app: "web"
+        x: "y"
+variable:
+  - 
+    region:
+      type: "string"
+      default: "eu-central-1"
+  - 
+    image_id:
+      type: "string"

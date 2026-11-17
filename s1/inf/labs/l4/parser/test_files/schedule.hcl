@@ -1,0 +1,43 @@
+schedule "wednesday" {
+  lesson "programming" {
+    type = "lection"
+    teacher = "Gavrilov Anton Valeryevich"
+    room = 1405
+    address = "Kronverksky pr., d.49, lit.A"
+    time_start = "09:50"
+    time_end = "11:20"
+    online = false
+  }
+
+  lesson "fundamentals of professional activity" {
+    type = "laboratory class"
+    teacher = "Voronina Darya Sergeevna"
+    room = 2112
+    address = "Kronverksky pr., d.49, lit.A"
+    time_start = "11:30"
+    time_end = "12:00"
+    online = false    
+  }
+
+  lesson "fundamentals of professional activity" {
+    type = "laboratory class"
+    teacher = "Voronina Darya Sergeevna"
+    room = 2112
+    address = "Kronverksky pr., d.49, lit.A"
+    time_start = "13:30"
+    time_end = "15:00"
+    online = false    
+  }
+}
+
+schedule "saturday" {
+  lesson "reforms and reformers in the history of russia" {
+    type = "practical classes"
+    teacher = "Vycherov Dmitry Aleksandrovich"
+    room = null
+    address = "itmo.ktalk.ru"
+    time_start = "20:30"
+    time_end = "22:00"
+    online = true
+  }
+}
